@@ -71,3 +71,10 @@ jobs:
           --disable=import-error,missing-module-docstring,missing-function-docstring,missing-class-docstring
           --fail-under=8.0
  main
+
+       name: Ejecutar pruebas con pytest
+        env:
+          PYTHONPATH: Maria
+        run: |
+          pip install pytest httpx
+          python -m pytest Maria/test/
