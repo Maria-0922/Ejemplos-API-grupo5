@@ -1,9 +1,8 @@
-
 name: CI Pipeline
 
 on:
   push:
-    branches: [ "main", "principal", "feat-cicd-maria" ]
+    branches: [ "main", "principal", "feat-cicd-maria", "feat-maria" ]
   pull_request:
     branches: [ "main", "principal" ]
 
@@ -65,8 +64,14 @@ jobs:
         run: |
           pylint Maria/src Maria/main.py --disable=import-error,missing-module-docstring,missing-function-docstring,missing-class-docstring --fail-under=8.0
 
+      # 1. Ejecutar las 10 pruebas automatizadas con Pytest (Punto 1 y 2)
       - name: Ejecutar pruebas con pytest
         env:
           PYTHONPATH: Maria
         run: |
-          python -m pytest Maria/test/
+          pytest Maria/test_videojuegos.py
+
+      # 2. Construir la imagen Docker para verificar empaquetamiento en la nube (Punto 3)
+      - name: Construir imagen Docker de Maria
+        run: |
+          docker build -t api-videojuegos:latest Maria/
