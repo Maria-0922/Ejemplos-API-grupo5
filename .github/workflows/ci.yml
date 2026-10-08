@@ -1,4 +1,8 @@
+ feat-cicd-maria
 name: CI Pipeline
+=======
+name: CI
+ main
 
 on:
   push:
@@ -15,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        project: [Juanda, Thomas]
+        project: [Juanda, Thomas, Mauricio]
     defaults:
       run:
         working-directory: ${{ matrix.project }}
@@ -40,6 +44,7 @@ jobs:
           pylint src main.py
           --disable=import-error,missing-module-docstring,missing-function-docstring,missing-class-docstring
           --fail-under=8.0
+ feat-cicd-maria
 
   # Job específico para Maria (tu módulo)
   quality-maria:
@@ -75,3 +80,5 @@ jobs:
       - name: Construir imagen Docker de Maria
         run: |
           docker build -t api-videojuegos:latest Maria/
+=======
+ main
