@@ -7,6 +7,7 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
+    # Cadena de conexión directa a Neon PostgreSQL
     database_url: str = "postgresql://neondb_owner:npg_F4fpBHiDWj0K@ep-noisy-rain-axzog8km-pooler.c-4.us-east-2.aws.neon.tech/neondb?sslmode=require"
 
     @property
