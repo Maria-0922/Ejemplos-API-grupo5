@@ -1,14 +1,22 @@
+from pathlib import Path
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+# Carpeta raíz del proyecto (Maria/), para encontrar el .env sin importar
+# desde qué directorio se ejecute el servidor.
+BASE_DIR = Path(__file__).resolve().parents[2]
 
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=BASE_DIR / ".env",
+        env_file_encoding="utf-8",
         extra="ignore",
     )
 
-    # Cadena de conexión directa a Neon PostgreSQL
-    database_url: str = "postgresql://neondb_owner:npg_F4fpBHiDWj0K@ep-noisy-rain-axzog8km-pooler.c-4.us-east-2.aws.neon.tech/neondb?sslmode=require"
+    # Cadena de conexión a la base de datos. Nunca se escribe aquí:
+    # se lee desde el archivo .env (que no se sube a GitHub).
+    database_url: str
 
     @property
     def sqlalchemy_url(self) -> str:
