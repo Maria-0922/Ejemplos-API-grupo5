@@ -6,6 +6,13 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 # desde qué directorio se ejecute el servidor.
 BASE_DIR = Path(__file__).resolve().parents[2]
 
+# Valor por defecto para que la API funcione sin configurar nada.
+# Si existe un archivo .env con DATABASE_URL, ese valor tiene prioridad.
+DEFAULT_DATABASE_URL = (
+    "postgresql://neondb_owner:npg_F4fpBHiDWj0K@"
+    "ep-noisy-rain-axzog8km-pooler.c-4.us-east-2.aws.neon.tech/neondb?sslmode=require"
+)
+
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
@@ -14,9 +21,8 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    # Cadena de conexión a la base de datos. Nunca se escribe aquí:
-    # se lee desde el archivo .env (que no se sube a GitHub).
-    database_url: str
+    # Cadena de conexión a Neon PostgreSQL
+    database_url: str = DEFAULT_DATABASE_URL
 
     @property
     def sqlalchemy_url(self) -> str:
