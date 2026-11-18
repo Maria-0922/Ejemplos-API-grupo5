@@ -11,18 +11,19 @@ El archivo `render.yaml` define dos servicios gratuitos:
 | `api-videojuegos-grupo5` | `Maria/` | Neon (misma que en local) |
 | `api-animales-grupo5` | `Thomas/` | Neon (misma que en local) |
 | `api-libros-grupo5` | `Mauricio/` | Neon (misma que en local) |
+| `api-motos-grupo5` | `Juanda/` | Neon (misma que en local) |
 
 Pasos:
 
 1. Crear cuenta en https://render.com (se puede entrar con GitHub).
 2. **New → Blueprint** y conectar el repositorio `Maria-0922/Ejemplos-API-grupo5`.
 3. Render detectará `render.yaml` y pedirá los valores de `DATABASE_URL` (`sync: false`).
-   Pegar en los tres servicios la cadena que está en `Maria/.env`:
+   Pegar en los cuatro servicios la cadena que está en `Maria/.env`:
    ```
    postgresql://neondb_owner:...@ep-noisy-rain-.../neondb?sslmode=require
    ```
 4. Esperar a que ambos servicios digan **Live** (puede tardar 5-10 min la primera vez).
-5. Copiar las URLs que terminen en `.onrender.com` de cada servicio.
+5. Copiar las URLs que terminen en `.onrender.com` de los cuatro servicios.
 
 Comprobar: abrir `https://<servicio>.onrender.com/docs`. Debe cargar Swagger.
 
@@ -38,6 +39,7 @@ export const environment = {
   apiUrl: 'https://URL-DEL-SERVICIO-ANIMALES.onrender.com',
   videojuegosApiUrl: 'https://URL-DEL-SERVICIO-VIDEOJUEGOS.onrender.com',
   librosApiUrl: 'https://URL-DEL-SERVICIO-LIBROS.onrender.com',
+  motosApiUrl: 'https://URL-DEL-SERVICIO-MOTOS.onrender.com',
 };
 ```
 
@@ -70,6 +72,7 @@ Abrir la URL de Firebase y comprobar:
 - [ ] `/animales` lista datos del backend de Render
 - [ ] `/videojuegos` muestra "Conectado" y lista datos del backend de Render
 - [ ] `/libros` lista datos del backend de Render
+- [ ] `/motos` lista datos del backend de Render
 - [ ] Se puede crear, editar, eliminar y buscar por ID
 - [ ] `https://<backend>.onrender.com/docs` responde
 
