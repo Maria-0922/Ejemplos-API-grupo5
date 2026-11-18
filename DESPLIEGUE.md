@@ -10,13 +10,14 @@ El archivo `render.yaml` define dos servicios gratuitos:
 |---|---|---|
 | `api-videojuegos-grupo5` | `Maria/` | Neon (misma que en local) |
 | `api-animales-grupo5` | `Thomas/` | Neon (misma que en local) |
+| `api-libros-grupo5` | `Mauricio/` | Neon (misma que en local) |
 
 Pasos:
 
 1. Crear cuenta en https://render.com (se puede entrar con GitHub).
 2. **New → Blueprint** y conectar el repositorio `Maria-0922/Ejemplos-API-grupo5`.
 3. Render detectará `render.yaml` y pedirá los valores de `DATABASE_URL` (`sync: false`).
-   Pegar en ambos la cadena que está en `Maria/.env`:
+   Pegar en los tres servicios la cadena que está en `Maria/.env`:
    ```
    postgresql://neondb_owner:...@ep-noisy-rain-.../neondb?sslmode=require
    ```
@@ -36,6 +37,7 @@ Editar `Frontend-GRUPO5-A-SW/src/environments/environment.ts` con las URLs reale
 export const environment = {
   apiUrl: 'https://URL-DEL-SERVICIO-ANIMALES.onrender.com',
   videojuegosApiUrl: 'https://URL-DEL-SERVICIO-VIDEOJUEGOS.onrender.com',
+  librosApiUrl: 'https://URL-DEL-SERVICIO-LIBROS.onrender.com',
 };
 ```
 
@@ -67,6 +69,7 @@ Abrir la URL de Firebase y comprobar:
 - [ ] `/inicio` carga
 - [ ] `/animales` lista datos del backend de Render
 - [ ] `/videojuegos` muestra "Conectado" y lista datos del backend de Render
+- [ ] `/libros` lista datos del backend de Render
 - [ ] Se puede crear, editar, eliminar y buscar por ID
 - [ ] `https://<backend>.onrender.com/docs` responde
 

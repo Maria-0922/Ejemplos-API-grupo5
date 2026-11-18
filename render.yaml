@@ -26,3 +26,17 @@ services:
         value: 3.12.0
       - key: DATABASE_URL
         sync: false
+
+  # Backend del modulo Libros (Mauricio)
+  - type: web
+    name: api-libros-grupo5
+    runtime: python
+    plan: free
+    rootDir: Mauricio
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
+      - key: DATABASE_URL
+        sync: false
