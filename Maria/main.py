@@ -31,6 +31,11 @@ app.add_middleware(
 app.include_router(videojuegos.router)
 
 
+@app.get("/health", tags=["Root"])
+def health_check():
+    return {"status": "ok"}
+
+
 @app.get("/", tags=["Root"])
 def read_root():
     return {

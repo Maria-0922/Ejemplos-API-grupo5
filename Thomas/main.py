@@ -1,6 +1,7 @@
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from src.api.animales import router as animales_router
 from src.database.database import Base, engine
@@ -31,3 +32,12 @@ def inicio():
 
 
 app.include_router(animales_router)
+
+# Permite que el frontend desplegado en Firebase consuma esta API
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
