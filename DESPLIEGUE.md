@@ -76,4 +76,17 @@ Abrir la URL de Firebase y comprobar:
 - [ ] Se puede crear, editar, eliminar y buscar por ID
 - [ ] `https://<backend>.onrender.com/docs` responde
 
-Entregar: **la URL `https://<proyecto>.web.app`** (mencionando también las URLs de los backends).
+## 5. URLs finales de esta entrega
+
+Frontend: https://grupo5-api-frontend.web.app
+
+Backends:
+
+| Servicio | URL |
+|---|---|
+| Videojuegos | https://api-videojuegos-grupo5.onrender.com |
+| Animales | https://api-animales-grupo5.onrender.com |
+| Libros | https://api-libros-grupo5.onrender.com |
+| Motos | https://api-motos-grupo5.onrender.com |
+
+Entregar: **la URL `https://grupo5-api-frontend.web.app`** (mencionando también las URLs de los backends).
